@@ -1,3 +1,7 @@
+import html
+
+# The content of the file you uploaded
+file_content = """
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -66,7 +70,7 @@
 <p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">      _</span>transition: background-color 0.2s;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>align-self: center;</p>
 <p class="p1"><span class="Apple-converted-space">            </span>width: 200px;</p>
 <p class="p1"><span class="Apple-converted-space">        </span>}</p>
@@ -138,7 +142,7 @@
 <p class="p1"><span class="Apple-converted-space">                        </span>// Rule: If type is 'Z', leave it blank (remove it)</p>
 <p class="p1"><span class="Apple-converted-space">                        </span>if (type === 'z') {</p>
 <p class="p1"><span class="Apple-converted-space">                            </span>type = '';</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">              _       </span>}</p>
 <p class="p2"><span class="Apple-converted-space">                        </span></p>
 <p class="p1"><span class="Apple-converted-space">                        </span>return season + number + type;</p>
 <p class="p1"><span class="Apple-converted-space">                    </span>}</p>
@@ -160,3 +164,31 @@
 <p class="p1">&lt;/html&gt;</p>
 </body>
 </html>
+"""
+
+# Extract the relevant lines that contain the *actual* code
+# A simple way is to find the start and end of the intended HTML
+start_marker = '<p class="p1">&lt;!DOCTYPE html&gt;</p>'
+end_marker = '<p class="p1">&lt;/html&gt;</p>'
+
+start_index = file_content.find(start_marker)
+end_index = file_content.find(end_marker) + len(end_marker)
+
+# Get the chunk of HTML that contains the escaped code
+escaped_code_with_tags = file_content[start_index:end_index]
+
+# Remove the surrounding <p> and <span> tags
+# This is a bit brute-force but effective for this specific structure
+import re
+cleaned_escaped_code = re.sub(r'<p class="p.">', '', escaped_code_with_tags)
+cleaned_escaped_code = re.sub(r'</p>', '\n', cleaned_escaped_code)
+cleaned_escaped_code = re.sub(r'<span class="Apple-converted-space">.*?</span>', '', cleaned_escaped_code)
+cleaned_escaped_code = re.sub(r'<br>', '\n', cleaned_escaped_code) # Handle line breaks
+
+# Unescape the HTML entities like &lt; and &gt;
+correct_html = html.unescape(cleaned_escaped_code)
+
+print("```html")
+print(correct_html.strip())
+print("```")
+
