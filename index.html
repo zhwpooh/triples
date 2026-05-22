@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;tripleS Objekt Formatter&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f4f4f9;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #2c3e50;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>textarea {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 200px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: monospace;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resize: vertical;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #4CAF50;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-self: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 200px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #45a049;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;tripleS Objekt Formatter&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="input"&gt;Raw Text (Paste here):&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;textarea id="input" placeholder="e.g., YooYeon BB111Z (x2) BB119Z BB120A"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="convertText()"&gt;Convert&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="output"&gt;Formatted Text:&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;textarea id="output" readonly placeholder="Output will appear here..."&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Full list of members</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const members = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>"seoyeon", "hyerin", "jiwoo", "chaeyeon", "yooyeon", "soomin",<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>"nakyoung", "yubin", "kaede", "dahyun", "kotone", "yeonji",<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>"nien", "sohyun", "xinyu", "mayu", "lynn", "joobin",<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>"hayeon", "shion", "chaewon", "sullin", "seoah", "jiyeon"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function convertText() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const input = document.getElementById("input").value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const lines = input.split('\n'); // Process line by line</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const outputLines = lines.map(line =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Split the line into individual words/tokens by spaces</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const tokens = line.trim().split(/\s+/);</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>const processedTokens = tokens.map(token =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (!token) return "";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// 1. Check if the word is a Member Name</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (members.includes(token.toLowerCase())) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>// Capitalize first letter, lowercase the rest (e.g., YooYeon -&gt; Yooyeon)</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>return token.charAt(0).toUpperCase() + token.slice(1).toLowerCase();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// 2. Check if the word is a Quantity (e.g., "(x2)")</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// Matches parenthesis, 'x' or 'X', and numbers</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const qtyMatch = token.match(/^\((x\d+)\)$/i);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (qtyMatch) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>// Return just the inside part (e.g., "x2")</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>return qtyMatch[1].toLowerCase();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// 3. Check if the word is an Objekt (e.g., "BB111Z")</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// Matches letters (Season), numbers (Number), and an optional letter (Type)</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const objektMatch = token.match(/^([a-zA-Z]+)(\d+)([a-zA-Z]?)$/);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (objektMatch) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const season = objektMatch[1].toLowerCase(); // e.g., BB -&gt; bb</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>const number = objektMatch[2]; <span class="Apple-converted-space">              </span>// e.g., 111 -&gt; 111</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>let type = objektMatch[3].toLowerCase(); <span class="Apple-converted-space">    </span>// e.g., Z -&gt; z, A -&gt; a</p>
+<p class="p2"><span class="Apple-converted-space">                        </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>// Rule: If type is 'Z', leave it blank (remove it)</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>if (type === 'z') {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>type = '';</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                        </span></p>
+<p class="p1"><span class="Apple-converted-space">                        </span>return season + number + type;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// 4. Fallback (If it doesn't match any rules, leave it exactly as it is)</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return token;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Rejoin the processed words into a single line</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return processedTokens.join(' ');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Rejoin all the lines and output</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("output").value = outputLines.join('\n');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
