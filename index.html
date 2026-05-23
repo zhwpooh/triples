@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tripleS Objekt Formatter</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .box {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: monospace;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            align-self: center;
+            width: 200px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>tripleS Objekt Formatter</h1>
+
+    <div class="container">
+        <div class="box">
+            <label for="input">Raw Text (Paste here):</label>
+            <textarea id="input" placeholder="e.g., YooYeon BB111Z (x2) BB119Z BB120A"></textarea>
+        </div>
+
+        <button onclick="convertText()">Convert</button>
+
+        <div class="box">
+            <label for="output">Formatted Text:</label>
+            <textarea id="output" readonly placeholder="Output will appear here..."></textarea>
+        </div>
+    </div>
+
+    <script>
+        const members = [
+            "seoyeon", "hyerin", "jiwoo", "chaeyeon", "yooyeon", "soomin", 
+            "nakyoung", "yubin", "kaede", "dahyun", "kotone", "yeonji", 
+            "nien", "sohyun", "xinyu", "mayu", "lynn", "joobin", 
+            "hayeon", "shion", "chaewon", "sullin", "seoah", "jiyeon"
+        ];
+
+        function convertText() {
+            const input = document.getElementById("input").value;
+            const lines = input.split('\n'); 
+            
+            const outputLines = lines.map(line => {
+                const tokens = line.trim().split(/\s+/);
+                
+                const processedTokens = tokens.map(token => {
+                    if (!token) return "";
+
+                    if (members.includes(token.toLowerCase())) {
+                        return token.charAt(0).toUpperCase() + token.slice(1).toLowerCase();
+                    }
+                    
+                    const qtyMatch = token.match(/^\((x\d+)\)$/i);
+                    if (qtyMatch) {
+                        return qtyMatch[1].toLowerCase();
+                    }
+                    
+                    const objektMatch = token.match(/^([a-zA-Z]+)(\d+)([a-zA-Z]?)$/);
+                    if (objektMatch) {
+                        const season = objektMatch[1].toLowerCase(); 
+                        const number = objektMatch[2];               
+                        let type = objektMatch[3].toLowerCase();     
+                        
+                        if (type === 'z') {
+                            type = '';
+                        }
+                        
+                        return season + number + type;
+                    }
+                    
+                    return token;
+                });
+                
+                return processedTokens.join(' ');
+            });
+
+            document.getElementById("output").value = outputLines.join('\n');
+        }
+    </script>
+
+</body>
+</html>
