@@ -43,7 +43,8 @@
             resize: vertical;
             box-sizing: border-box;
         }
-        button {
+        /* Style for the big convert button */
+        .convert-btn {
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -56,8 +57,25 @@
             align-self: center;
             width: 200px;
         }
-        button:hover {
+        .convert-btn:hover {
             background-color: #45a049;
+        }
+        /* Style for the smaller paste and copy buttons */
+        .action-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 8px;
+            align-self: flex-start; /* Aligns to the left */
+        }
+        .action-btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -66,16 +84,20 @@
     <h1>tripleS Objekt Formatter</h1>
 
     <div class="container">
+        <!-- Input Box -->
         <div class="box">
-            <label for="input">Raw Text (Paste here):</label>
+            <label for="input">Raw Text:</label>
             <textarea id="input" placeholder="e.g., YooYeon BB111Z (x2) BB119Z BB120A"></textarea>
+            <button class="action-btn" onclick="pasteText()">Paste</button>
         </div>
 
-        <button onclick="convertText()">Convert</button>
+        <button class="convert-btn" onclick="convertText()">Convert</button>
 
+        <!-- Output Box -->
         <div class="box">
             <label for="output">Formatted Text:</label>
             <textarea id="output" readonly placeholder="Output will appear here..."></textarea>
+            <button id="copyBtn" class="action-btn" onclick="copyText()">Copy</button>
         </div>
     </div>
 
@@ -86,6 +108,40 @@
             "nien", "sohyun", "xinyu", "mayu", "lynn", "joobin", 
             "hayeon", "shion", "chaewon", "sullin", "seoah", "jiyeon"
         ];
+
+        // Function to handle pasting text
+        async function pasteText() {
+            try {
+                // Read text from clipboard
+                const text = await navigator.clipboard.readText();
+                document.getElementById("input").value = text;
+            } catch (err) {
+                alert('Failed to paste text. Your browser might require you to grant clipboard permissions.');
+            }
+        }
+
+        // Function to handle copying text
+        async function copyText() {
+            const outputText = document.getElementById("output").value;
+            if (!outputText) return; // Don't copy if empty
+            
+            try {
+                // Write text to clipboard
+                await navigator.clipboard.writeText(outputText);
+                
+                // Change button text temporarily to show success
+                const copyBtn = document.getElementById("copyBtn");
+                copyBtn.innerText = "Copied!";
+                copyBtn.style.backgroundColor = "#28a745"; // turn green
+                
+                setTimeout(() => {
+                    copyBtn.innerText = "Copy";
+                    copyBtn.style.backgroundColor = "#007bff"; // revert to blue
+                }, 2000); // Change back after 2 seconds
+            } catch (err) {
+                alert('Failed to copy text.');
+            }
+        }
 
         function convertText() {
             const input = document.getElementById("input").value;
